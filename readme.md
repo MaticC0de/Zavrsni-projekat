@@ -20,3 +20,4 @@ Aplikacija će imati mogućnosti kao što su:
 Ova aplikacija će sadržati i pretragu.
 Pretraga će biti jednostavna, po imenu i prezimenu.
 
+...
