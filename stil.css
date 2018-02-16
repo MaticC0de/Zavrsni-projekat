@@ -2,6 +2,11 @@ body{background:lightblue;}
 .velikiDiv{height: 600px;width:300px;border: solid black 2px;margin: auto;text-align: center;background: brown;display: block; }
 .maliDiv{height:auto;width:200px;margin:200px 50px;color: black;font-size: 25px;background: white;}
 a {color: black;background: lightblue;width: 75px; margin: auto}
+<<<<<<< HEAD
 table,thead,tr,td{border:solid black 1px;text-align: center;}
 
 
+=======
+table,thead,tr,td{border:solid black 1px;text-align: center }
+.divRazredi{height: 50px;width: 200px;text-align: center;background: blue; display: inline-grid;border-bottom: solid black 1px;margin: auto}
+>>>>>>> 90e992663608d4c5f4eca6593ac6cbbb8beec9ec
