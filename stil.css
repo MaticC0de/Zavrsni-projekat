@@ -1,0 +1,7 @@
+body{background:lightblue;}
+.velikiDiv{height: 600px;width:300px;border: solid black 2px;margin: auto;text-align: center;background: brown;display: block; }
+.maliDiv{height:auto;width:200px;margin:200px 50px;color: black;font-size: 25px;background: white;}
+a {color: black;background: lightblue;width: 75px; margin: auto}
+table,thead,tr,td{border:solid black 1px;text-align: center;}
+
+

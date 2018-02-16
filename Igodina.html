@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="stil.css">
+    <title>Prva godina</title>
+</head>
+<body>
+    <form>
+        <table>
+            <tr>
+                <td>
+                    Broj:
+                    <input type="text" id="number">
+                    <br> Ime:
+                    <input type="text" id="name">
+                    <br> Prezime:
+                    <input type="text" id="surname">
+                    <br> Pol:
+                    <select name="genders" id="pol">
+                        <option value="M">Muško</option>
+                        <option value="Ž">Žensko</option>
+                    </select>
+                    <br> Odeljenje
+                    <input type="number" id="odeljenje" min="1">
+                    <br>
+                    <br>
+                </td>
+                <td>
+                    Spisak predmeta:
+                    <br> Srpski
+                    <input type="number" min="1" max="5">
+                    <br> Engleski
+                    <input type="number" min="1" max="5">
+                    <br> Matematika
+                    <input type="number" min="1" max="5">
+                    <br> Istorija
+                    <input type="number" min="1" max="5">
+                    <br> Biologija
+                    <input type="number" min="1" max="5">
+                    <br> Geografija
+                    <input type="number" min="1" max="5">
+                    <br> Fizika
+                    <input type="number" min="1" max="5">
+                    <br> Hemija
+                    <input type="number" min="1" max="5">
+                    <br> Fizicko
+                    <input type="number" min="1" max="5">
+                    <br> Likovno
+                    <input type="number" min="1" max="5">
+                    <br> Muzicko
+                    <input type="number" min="1" max="5">
+                    <br> Osnove elektrotehnike
+                    <input type="number" min="1" max="5">
+                    <br> Multimedija
+                    <input type="number" min="1" max="5">
+                    <br> Računarstvo i informatika
+                    <input type="number" min="1" max="5">
+                    <br> Praktična nastava
+                    <input type="number" min="1" max="5">
+                    <br> Vladanje
+                    <input type="number" min="1" max="5">
+                    <br> Opšti uspeh
+                    <input type="number" min="1" max="5">
+                    <br>
+                </td>
+            </tr>
+        </table>
+        <input type="button" value="Upiši" id="send">
+        <input type="reset" value="Obriši" id="delete">
+    </form>
+    <script src="dnevnik.js"></script>
+</body>
+</html>
