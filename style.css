@@ -1,0 +1,19 @@
+h1{font-size: 60px; text-align: center}
+/*nav{padding-left:15%;}*/
+form{background-color:blue;margin: auto; color: white}
+.menu{float:left; border: solid white 1px; padding:10px;margin-left: 10px; background-color:black;color: white }
+#searchMenuButton{float:left; padding:5px; margin-left: 10px;}
+.column{float:left; padding:10px; margin-left: 30px;}
+header{margin:auto; text-align: center;}
+#register{display: none; padding:0%; margin: auto;max-width:30%;}
+#forgetPassword{display: none; margin: auto;max-width:25%;}
+#logOut{display: none;margin: auto;max-width:25%;}
+#logIn{display:block;  float:left;position: relative}
+#email, #pass, #logInButton,#registerButton{float:left; padding-left: 10px;}
+#forgetPassButton{float:left; padding-left: 100px;padding-right: 100px;}
+#addNewStudent{display: none;max-width: 50%;float:left;position: relative;margin-left: 10%}
+#addNewProfessor {display: none;max-width: 50%;position: relative;float:left;margin-left: 25%}
+#subjects1{background-color: blue;color: white; display: none;position: absolute;}
+#closeProfile,#closeStudentForm,#closeSubjectList,#closeProfessorForm{color: whitesmoke;background-color:rgba(0, 0, 255, 0.5);position: absolute;top: 0px;right: 0px; }
+#profilePage{display: none;width:30%;position:relative; margin:auto; font-size: 20px;text-align: left; padding: 20px;border: 1px solid whitesmoke;background-color:rgb(0, 0, 255);color: whitesmoke }
+#profilePage div{border: 1px solid whitesmoke;font-size: 15px;width: 50px;margin-left: 350px;text-align: center;}

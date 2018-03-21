@@ -5,13 +5,268 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Evidencija ocena</title>
-    <link rel="stylesheet" href="stil.css">
+    <link rel="icon" type="image/png" href="star.png">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="pocetniDiv" class="velikiDiv">
-        <div class="maliDiv">Srednja tehnička PTT škola</div>
-        <a href="odeljenja.html" target="_blank"> Otvori evidenciju </a>
+        <header>
+                <h1>
+                    <em>Students marks of "Srednja tehnička PTT škola"</em>
+                </h1>
+        </header>
+    <div>
+        <button id="logOut">LogOut</button>
+        <form id="logIn">
+            <fieldset>
+                <legend>Log in form</legend>
+                <input type="email" id="email" placeholder="email" name="email">
+                <input type="password" id="pass" placeholder="password" name="password">
+                <div id="logInButton">
+                    <strong>Log in</strong>
+                </div>
+                <br>
+                <div>
+                    <div id="registerButton">Register</div>
+                    <div id="forgetPassButton">Forget password</div>
+                </div>
+            </fieldset>
+        </form>
     </div>
-    
+    <br><br><br>
+    <form id="register">
+        <fieldset>
+            <legend id="createOrEdit">Create your acount:</legend>
+            <label for="userName">Name:</label>
+            <br>
+            <input type="text" name="userName" id="userName" required>
+            <br>
+            <label for="userLastname">Lastname</label>
+            <br>
+            <input type="text" name="userLastname" id="userLastname" required>
+            <br>
+            <label for="gender" id="userGender">Gender:</label>
+            <br>
+            <input type="radio" name="gender" value="male"> Male
+            <input type="radio" name="gender" value="female"> Female
+            <br>
+            <label for="userEmail">Email address: </label>
+            <br>
+            <input type="text" name="userEmail" id="userEmail" required>
+            <br>
+            <label for="userPassword">Password:</label>
+            <br>
+            <input type="password" name="userPassword" id="userPassword" required>
+            <br>
+            <div>
+                <button type="submit" id="createAcount">Create acount</button>
+                <button type="reset">Reset</button>
+                <button id="closeRegistration">Close</button>
+            </div>
+        </fieldset>
+    </form>
+    <form id="forgetPassword">
+        <fieldset>
+            <legend>Forget password</legend>
+            <label for="forgetPass">Enter your email address:</label>
+            <br>
+            <input type="email" name="forgetPass" id="forgetPass" required>
+            <button type="submit" id="sendEmail">Send</button>
+            <button type="button" id="closeForgetPassword">Close</button>
+        </fieldset>
+    </form>
+    <br>
+    <br>
+
+    <nav>
+        <div class="menu" id="newStudent">Add new student</div>
+        <div class="menu" id="newProfessor">Add professor</div>
+        <div class="menu" id="studentsList">List of students</div>
+        <div class="menu" id="professorsList">Professors list</div>
+        <div class="menu" id="listOfSubjects">Subjects by year</div>
+        <div class="menu" id="profile">Profile</div>
+        <!-- <div  class="menu"id="searchMenuButton"><img src="pictures/search/search-icon-md.png" alt="saerch"></div> -->
+    </nav>
+    <br>
+    <br><br>
+    <div id="tableProfessorList"></div>
+    <div id="tableStudentList"></div>
+
+    <div id="profilePage">
+        Profile information 
+        <hr>
+        Your name:
+        <span id="myName"></span>
+        <br> Your lastname:
+        <span id="myLastName"></span>
+        <br> Your gender:
+        <span id="myGender"></span>
+        <br> Your email:
+        <span id="myEmail"></span>
+        <br>
+        <button id="closeProfile">X</button>
+    </div>
+    <!--  Forma za Studente  -->
+    <div>
+        <form id="addNewStudent">
+            <fieldset>
+                <legend id="studentForm">Create new student:</legend>
+                <label for="studentName">Student name:</label>
+                <br>
+                <input type="text" name="studentName" id="studentName" required>
+                <br>
+                <label for="studentLastname">Student lastname</label>
+                <br>
+                <input type="text" name="studentLastname" id="studentLastname" required>
+                <br>
+                <label for="gender">Student gender</label>
+                <br>
+                <input type="radio" name="gender" value="male"> Male
+                <input type="radio" name="gender" value="female"> Female
+                <br>
+                <label for="birthday">Date of birth: </label>
+                <br>
+                <input type="date" name="birthday" id="birthday">
+                <br>
+                <br>
+                <div>
+                    <button type="submit" id="createStudent">Create student</button>
+                    <button type="reset">Reset</button>
+                </div>
+            </fieldset>
+            <button id="closeStudentForm">X</button>
+        </form>
+    </div>
+    <!-- Kraj za studente -->
+
+    <!-- Forma za profesore -->
+    <div>
+        <div>
+            <form id="addNewProfessor">
+                <fieldset>
+                    <legend id="professorForm">Create new professor:</legend>
+                    <label for="professorID">Professor ID:</label>
+                    <br>
+                    <input type="text" name="professorID" id="professorID" required>
+                    <br>
+                    <label for="professorName">Prof. Name:</label>
+                    <br>
+                    <input type="text" name="professorName" id="professorName">
+                    <br>
+                    <label for="professorLastname">Prof. Lastname</label>
+                    <br>
+                    <input type="text" name="professorLastname" id="professorLastname">
+                    <br>
+                    <label for="pol">Prof. gender</label>
+                    <br>
+                    <input type="radio" name="pol" value="male"> Male
+                    <input type="radio" name="pol" value="female"> Female
+                    <br>
+                    <label for="professorBirthday">Date of birth: </label>
+                    <br>
+                    <input type="date" name="professorBirthday" id="professorBirthday">
+                    <br>
+                    <label for="item">Prof. subject</label>
+                    <br>
+                    <input type="text" name="professorSubject" id="professorSubject">
+                    <br>
+                    <div>
+                        <button type="submit" id="createProfessor">Create professor</button>
+                        <button type="reset">Reset</button>
+                    </div>
+                </fieldset>
+                <button id="closeProfessorForm">X</button>
+            </form>
+        </div>
+    </div>
+    <!-- kraj za profesore -->
+
+    <div id="subjects1">
+        <fieldset>
+            <legend>Subjects by year</legend>
+            <table>
+                <tr>
+                    <td>
+                        <br> Subjects in 1<sup>st</sup> year
+                        <hr> 1.Srpski jezik i književnost
+                        <br> 2.Engleski jezik
+                        <br> 3.Matematika
+                        <br> 4.Istorija
+                        <br> 5.Biologija
+                        <br> 6.Geografija
+                        <br> 7.Fizika
+                        <br> 8.Hemija
+                        <br> 9.Fizičko
+                        <br> 10.Likovno
+                        <br> 11.Muzičko
+                        <br> 12.Osnove elektrotehnike
+                        <br> 13.Multimedija
+                        <br> 14.Računarstvo i informatika
+                        <br> 15.Praktična nastava
+                        <br> 16.Vladanje
+
+                    </td>
+                    <td>
+                        Subjects in 2<sup>nd</sup> year
+                        <hr> 1.Srpski jezik i književnost
+                        <br> 2.Engleski jezik
+                        <br> 3.Matematika
+                        <br> 4.Istorija
+                        <br> 5.Električna merenja
+                        <br> 6.Fizika
+                        <br> 7.Računari u elektrotehnici
+                        <br> 8.Fizičko
+                        <br> 9.Likovno
+                        <br> 10.Telekomunikacioni vodovi
+                        <br> 11.Osnove elektrotehnike
+                        <br> 12.Elektronika i materijali
+                        <br> 13.Računarstvo i informatika
+                        <br> 14.Praktična nastava
+                        <br> 15.Vladanje
+                        <br>
+                    </td>
+                    <td>
+                        Subjects in 3<sup>rd</sup> year
+                        <hr> 1.Srpski jezik i književnost
+                        <br> 2.Engleski jezik
+                        <br> 3.Matematika
+                        <br> 4.Sociologija
+                        <br> 5.Elektornika 2
+                        <br> 6.Osnove programiranja
+                        <br> 7.Digitalna elektronika
+                        <br> 8.Fizičko
+                        <br> 9.Teorija telekomunikacija
+                        <br> 10.Tehnike digitalnog prenosa
+                        <br> 11.Komutaciona tehnika
+                        <br> 13.Vladanje
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                    </td>
+                    <td>
+                        Subjects in 4<sup>th</sup> year
+                        <hr> 1.Srpski jezik i književnost
+                        <br> 2.Engleski jezik
+                        <br> 3.Matematika
+                        <br> 4.Filozofija
+                        <br> 5.Fizičko
+                        <br> 6.Ekonomika
+                        <br> 7.Telekomunikaciona merenja
+                        <br> 8.Ustav i prava gradjana
+                        <br> 9.Telekomunikacione mreže
+                        <br> 10.Sistemi prenosa
+                        <br> 11.Računarske mreže
+                        <br> 13.Vladanje
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                    </td>
+                </tr>
+            </table>
+            <button id="closeSubjectList">X</button>
+        </fieldset>
+    </div>
+    <script src="noviScript.js"></script>
 </body>
 </html>
