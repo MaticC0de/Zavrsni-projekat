@@ -23,8 +23,8 @@ var locStorage = (function () {
 // --------------------------------- Show i hide ---------------------------------
 
 function val(element, value) {
-    if (!document.getElementById(element)){
-        console.log(" ne postoji id ",element);
+    if (!document.getElementById(element)) {
+        console.log(" ne postoji id ", element);
         return;
     }
     if (!value) {
@@ -35,16 +35,16 @@ function val(element, value) {
 }
 
 function show(id) {
-    if (!document.getElementById(id)){
-        console.log(" ne postoji id ",id);
+    if (!document.getElementById(id)) {
+        console.log(" ne postoji id ", id);
         return;
     }
     document.getElementById(id).style.display = "block";
 }
 
 function hide(id) {
-    if (!document.getElementById(id)){
-        console.log(" ne postoji id ",id);
+    if (!document.getElementById(id)) {
+        console.log(" ne postoji id ", id);
         return;
     }
     document.getElementById(id).style.display = "none";
@@ -338,21 +338,21 @@ var tableForStudentList = function () {
                 newRow.appendChild(newColumn);
 
 
-            document.getElementById("tableForStudentList").appendChild(newRow);
+                document.getElementById("tableForStudentList").appendChild(newRow);
             }
-            var del=document.createElement("td");
-            del.setAttribute("id",allStudents,"_del");
-            del.textContent="Delete";
+            var del = document.createElement("td");
+            del.setAttribute("id", id+"_del");
+            del.textContent = "Delete";
             newRow.appendChild(del);
-            var edit=document.createElement("td");
-            edit.setAttribute("id",allStudents,"_edit");
-            edit.textContent= "Edit";  
-            newRow.appendChild(edit); 
+            var edit = document.createElement("td");
+            edit.setAttribute("id", id+ "_edit");
+            edit.textContent = "Edit";
+            newRow.appendChild(edit);
         }
     };
 
     createTableHead(7, "tableForStudentList");
-    writeTableHead(7, ["ID", "Student Name", "Student lastname", "Birthday", "Gender","Delete","Edit"]);
+    writeTableHead(7, ["ID", "Student Name", "Student lastname", "Birthday", "Gender", "Delete", "Edit"]);
     tableData();
 
     document.getElementById("studentsList").addEventListener("click", function () {
@@ -368,3 +368,18 @@ var tableForStudentList = function () {
 tableForStudentList();
 
 // ----------------  Delete & Edit ------------------
+
+var deleteStudent = function (e) {
+    console.log(e.target);
+    if (e.target.id.indexOf('_del') > 0) {
+        var id = e.target.id.split('_del')[0];
+        var allStudents = locStorage.load("allStudent");
+        if (allStudents == null) allStudents = {};
+        delete allStudents[id];
+        locStorage.save("allStudent", allStudents);
+        location.reload();
+    }
+};
+
+
+document.getElementById('listOfStudents').addEventListener('click', deleteStudent);
