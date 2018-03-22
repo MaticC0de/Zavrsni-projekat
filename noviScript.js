@@ -213,7 +213,7 @@ document.getElementById("closeProfessorForm").addEventListener("click", function
 });
 
 //--------------------------------  Kreiranje studenata i profesora  -------------------------------------
-var allStudents = (function () {
+var allStudent = (function () {
 
     var allStudents = locStorage.load("allStudent");
     if (allStudents == null) allStudents = {};
