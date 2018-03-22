@@ -339,11 +339,11 @@ var tableForStudentList = function () {
 
             document.getElementById("tableForStudentList").appendChild(newRow);
             }
-            var del=document.createElement("th");
+            var del=document.createElement("td");
             del.setAttribute("id",allStudents,"_del");
             del.textContent="Delete";
             newRow.appendChild(del);
-            var edit=document.createElement("th");
+            var edit=document.createElement("td");
             edit.setAttribute("id",allStudents,"_edit");
             edit.textContent= "Edit";  
             newRow.appendChild(edit); 
