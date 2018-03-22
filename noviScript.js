@@ -337,6 +337,7 @@ var tableForStudentList = function () {
                 newColumn.textContent = allStudents[id][column];
                 newRow.appendChild(newColumn);
 
+                
             document.getElementById("tableForStudentList").appendChild(newRow);
             }
             var del=document.createElement("td");
