@@ -20,6 +20,73 @@ var locStorage = (function () {
     }
 })();
 
+/*
+//######################## Demo podaci
+
+var demoData = function () {
+    var demoUsers = {
+        "stefanm@gmail.com": {
+
+            "email": "stefanm@gmail.com",
+            "gender": "male",
+            "lastName": "Matic",
+            "name": "Stefan",
+            "password": "stefan123",
+        },
+        "nemanja@yahoo.com": {
+            "email": "nemanja@yahoo.com",
+            "gender": "male",
+           "lastName": "Matic",
+            "name": "Nemanja",
+            "password": "matke99"
+        },
+        "jovan.jo@gmail.com" : {       
+                "email": "jovan.jo@gmail.com",
+                "gender": "male",
+                "lastName": "Jovanovic",
+                "name": "Jovan",
+                "password": "jojo123"
+        },
+    }
+    var demoStudent={
+        "StefanMatic": {
+            "birthday": "3-25-1995",
+            "gender": "male",
+            "lastName": "Matic",
+            "name": "Stefan",
+
+        },
+        "DanijelDjordjevic": {
+            "birthday": "16-12-1994",
+            "gender": "male",
+            "lastName": "Djordjevic",
+            "name": "Danijel",
+
+        },
+    }
+    var demoProfessor = {
+        "1": { 
+            "subject": "Matematika",
+            "pol": "female",
+            "birthday": "11-8-1983",
+            "name": "Marina",
+            "lastName":"Savic",
+
+        },
+        "2": { 
+            "subject": "Istorija",
+            "pol": "female",
+            "birthday": "1-1-1961",
+            "name": "Milorad",
+            "lastName":"Nikolic",
+        }
+    }
+}
+
+locStorage.save("demoUsers", allUsers);
+locStorage.save("demoStudent", allStudent);
+locStorage.save("demoProfessor", allProfessors);
+*/
 // --------------------------------- Show i hide ---------------------------------
 
 function val(element, value) {
