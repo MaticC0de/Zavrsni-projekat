@@ -19,4 +19,4 @@ header{margin:auto; text-align: center;}
  tr,td{border-spacing: 5px;background-color:rgba(0, 0, 255);padding: 5px; border: 1px solid white; color: white;text-align: center;}
 th{border: solid black 1px;text-align: center;padding: 3px;background-color: blue;color: black;font-weight: bold;font-style: italic}
 #listOfStudents{display: none}
-table {border: solid black 2px;background-color: blue;border-spacing: 5px}
+table {border: solid black 2px;background-color: blue;border-spacing: 5px;}
