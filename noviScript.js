@@ -23,17 +23,30 @@ var locStorage = (function () {
 // --------------------------------- Show i hide ---------------------------------
 
 function val(element, value) {
+    if (!document.getElementById(element)){
+        console.log(" ne postoji id ",element);
+        return;
+    }
     if (!value) {
         return document.getElementById(element).value;
     } else {
         document.getElementById(element).value = value;
     }
 }
+
 function show(id) {
+    if (!document.getElementById(id)){
+        console.log(" ne postoji id ",id);
+        return;
+    }
     document.getElementById(id).style.display = "block";
 }
 
 function hide(id) {
+    if (!document.getElementById(id)){
+        console.log(" ne postoji id ",id);
+        return;
+    }
     document.getElementById(id).style.display = "none";
 }
 
@@ -140,7 +153,8 @@ document.getElementById("newStudent").addEventListener("click", function () {
     show("addNewStudent");
     hide("subjects1");
     hide("addNewProfessor");
-    hide("profilePage")
+    hide("profilePage");
+    show("listOfStudents");
     show("profile");
 });
 document.getElementById("profile").addEventListener("click", function () {
@@ -150,11 +164,12 @@ document.getElementById("profile").addEventListener("click", function () {
     document.getElementById("myGender").textContent = loggedInUser.gender;
     document.getElementById("myEmail").textContent = loggedInUser.email;
     show("profilePage");
-    hide("profile")
+    hide("profile");
     hide("addNewStudent");
     hide("addNewProfessor");
     hide("subjects1");
-    
+    hide("listOfStudents")
+
 });
 document.getElementById("closeProfile").addEventListener("click", function () {
     hide("profilePage");
@@ -162,6 +177,7 @@ document.getElementById("closeProfile").addEventListener("click", function () {
 });
 document.getElementById("closeStudentForm").addEventListener("click", function () {
     hide("addNewStudent");
+    hide("listOfStudents");
     show("newStudent");
 });
 document.getElementById("closeForgetPassword").addEventListener("click", function () {
@@ -176,7 +192,8 @@ document.getElementById("listOfSubjects").addEventListener("click", function () 
     show("subjects1");
     hide("addNewStudent");
     hide("addNewProfessor");
-    hide("profilePage")
+    hide("profilePage");
+    hide("listOfStudents");
     show("profile");
 });
 document.getElementById("closeSubjectList").addEventListener("click", function () {
@@ -186,7 +203,8 @@ document.getElementById("newProfessor").addEventListener("click", function () {
     show("addNewProfessor");
     hide("subjects1");
     hide("addNewStudent");
-    hide("profilePage")
+    hide("profilePage");
+    hide("listOfStudents");
     show("profile");
 });
 
@@ -197,7 +215,7 @@ document.getElementById("closeProfessorForm").addEventListener("click", function
 //--------------------------------  Kreiranje studenata i profesora  -------------------------------------
 var allStudents = (function () {
 
-    var allStudents = locStorage.load("allStudents");
+    var allStudents = locStorage.load("allStudent");
     if (allStudents == null) allStudents = {};
 
     var allProfessors = locStorage.load("allProfessors");
@@ -228,6 +246,7 @@ var allStudents = (function () {
     var addStudentToAllStudents = function name(id) {
         if (!allStudents[id] && document.querySelectorAll("require")) {
             allStudents[id] = createStudent();
+            location.reload();
             return allStudents;
         }
         else console.log("this student already exist!");
@@ -273,4 +292,68 @@ var allStudents = (function () {
         document.getElementById("addNewProfessor").reset();
     });
 }());
+
+// -----------------------  tabela za Studente --------------------
+
+var tableForStudentList = function () {
+
+    var createTableHead = function (numberOfColumn, id) {
+        // Table
+        var table = document.createElement("table");
+        table.setAttribute("id", "myTableStudents");
+        document.getElementById("listOfStudents").appendChild(table);
+        // Table head
+        var tableHead = document.createElement("thead");
+        tableHead.setAttribute("id", "studentsTableHead");
+        table.appendChild(tableHead);
+        var tbody = document.createElement("tbody");
+        tbody.setAttribute("id", id);
+        // Table row
+        var headRow = document.createElement("tr");
+        headRow.setAttribute("id", "studentsHeadRow")
+        tableHead.appendChild(headRow);
+        for (var collumnNumber = 0; collumnNumber < numberOfColumn; collumnNumber++) {
+            var column = document.createElement("th");
+            headRow.appendChild(column);
+        }
+        table.appendChild(tbody);
+        return table;
+    };
+    // ovo popunjava zaglavlje. Prvi parametar je broj kolona, a u drugi prosledjujem niz u kome su podaci koji se upisuju u thead
+    var writeTableHead = function (numberOfColumn, namesInArreyForThead) {
+        var columnName = document.getElementById("studentsHeadRow").childNodes;
+        for (var collumnNumber = 0; collumnNumber < numberOfColumn; collumnNumber++) {
+            columnName[collumnNumber].textContent = namesInArreyForThead[collumnNumber];
+        }
+    };
+    // Uzimanje iz localStorage-a.
+    var tableData = function () {
+        var allStudents = locStorage.load("allStudent");
+        if (allStudents == null) allStudents = {};
+        for (var id in allStudents) {
+            var newRow = document.createElement("tr");
+            for (var column in allStudents[id]) {
+                var newColumn = document.createElement("td");
+                newColumn.textContent = allStudents[id][column];
+                newRow.appendChild(newColumn);
+            }
+            document.getElementById("tableForStudentList").appendChild(newRow);
+        }
+    };
+
+    createTableHead(5, "tableForStudentList");
+    writeTableHead(5, ["ID", "Student Name", "Student lastname", "Birthday", "Gender"]);
+    tableData();
+
+    document.getElementById("studentsList").addEventListener("click", function () {
+        show("listOfStudents");
+        hide("addNewProfessor");
+        hide("subjects1");
+        hide("addNewStudent");
+        hide("profilePage");
+        show("profile")
+    });
+
+};
+tableForStudentList();
 
