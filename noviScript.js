@@ -341,8 +341,8 @@ var tableForStudentList = function () {
         }
     };
 
-    createTableHead(5, "tableForStudentList");
-    writeTableHead(5, ["ID", "Student Name", "Student lastname", "Birthday", "Gender"]);
+    createTableHead(7, "tableForStudentList");
+    writeTableHead(7, ["ID", "Student Name", "Student lastname", "Birthday", "Gender","Delete","Edit"]);
     tableData();
 
     document.getElementById("studentsList").addEventListener("click", function () {
