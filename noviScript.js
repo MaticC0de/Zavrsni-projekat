@@ -336,8 +336,17 @@ var tableForStudentList = function () {
                 var newColumn = document.createElement("td");
                 newColumn.textContent = allStudents[id][column];
                 newRow.appendChild(newColumn);
-            }
+
             document.getElementById("tableForStudentList").appendChild(newRow);
+            }
+            var del=document.createElement("th");
+            del.setAttribute("id",allStudents,"_del");
+            del.textContent="Delete";
+            newRow.appendChild(del);
+            var edit=document.createElement("th");
+            edit.setAttribute("id",allStudents,"_edit");
+            edit.textContent= "Edit";  
+            newRow.appendChild(edit); 
         }
     };
 
