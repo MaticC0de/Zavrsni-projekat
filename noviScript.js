@@ -118,6 +118,7 @@ function hide(id) {
 }
 
 //---------------------------------- metode za registraciju i log in ---------------------------------------
+
 var forgetLog = function () {
     var log = locStorage.load('loggedInUser');
     var isUserLogedIn = function () {
@@ -127,7 +128,13 @@ var forgetLog = function () {
         }
         else {
             document.getElementById("logIn");
+            hide("logIn")
             show("logOut");
+            show("newStudent");
+            show("newProfessor");
+            show("profile");
+            show("studentsList");
+            show("listOfSubjects");
         }
     };
     document.body.addEventListener("load", isUserLogedIn());
@@ -157,6 +164,7 @@ var forgetLog = function () {
         }
         else console.log("Niste uneli sve podatke, molimo Vas popunite sva polja!");
     };
+    
     document.getElementById("createAcount").addEventListener("click", function () {
         createUser();
         addUserToAllUsers(document.getElementById("userEmail").value);
@@ -293,6 +301,7 @@ var allStudent = (function () {
         hide("profilePage");
     });
 
+
     var Student = function (id, name, lastName, birthday, gender) {
         this.id = id;
         this.name = name;
@@ -302,14 +311,15 @@ var allStudent = (function () {
     };
 
     var createStudent = function () {
+        var id = document.getElementById("studentID").value;
         var name = document.getElementById("studentName").value;
         var lastName = document.getElementById("studentLastname").value;
         var birthday = document.getElementById("birthday").value;
         var gender = document.querySelector('input[name="gender"]:checked').value;
-        var id = name + lastName;
 
         return new Student(id, name, lastName, birthday, gender);
     };
+
     var addStudentToAllStudents = function name(id) {
         if (!allStudents[id] && document.querySelectorAll("require")) {
             allStudents[id] = createStudent();
@@ -318,12 +328,23 @@ var allStudent = (function () {
         }
         else console.log("this student already exist!");
     };
+    var validData = function (datum) {
+        var tmp=datum.split('/');
+        var mesec=tmp[0];
+        var dan=tmp[1];
+        var godina=tmp[2]; 
+            if(!(godina >=1999 && godina<=2004)){
+            alert('Godina nije dobra!');
+            }
+    }
+
     document.getElementById("createStudent").addEventListener("click", function (e) {
         e.preventDefault();
         createStudent();
         addStudentToAllStudents(document.getElementById("studentName").value);
         locStorage.save("allStudent", allStudents);
         document.getElementById("addNewStudent").reset();
+        
     });
 
     var Professor = function (id, name, lastName, birthday, pol, subject) {
@@ -404,7 +425,6 @@ var tableForStudentList = function () {
                 newColumn.textContent = allStudents[id][column];
                 newRow.appendChild(newColumn);
 
-
                 document.getElementById("tableForStudentList").appendChild(newRow);
             }
             var del = document.createElement("td");
@@ -437,7 +457,7 @@ tableForStudentList();
 // ----------------  Delete & Edit ------------------
 
 var deleteStudent = function (e) {
-    console.log(e.target);
+    
     if (e.target.id.indexOf('_del') > 0) {
         var id = e.target.id.split('_del')[0];
         var allStudents = locStorage.load("allStudent");
