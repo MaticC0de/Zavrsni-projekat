@@ -329,23 +329,28 @@ var allStudent = (function () {
         else console.log("this student already exist!");
     };
     var validData = function (datum) {
-        var tmp=datum.split('/');
-        var mesec=tmp[0];
-        var dan=tmp[1];
-        var godina=tmp[2]; 
-            if(!(godina >=1999 && godina<=2004)){
+        var tmp = datum.split('-');
+        var mesec = tmp[2];
+        var dan = tmp[1];
+        var godina = tmp[0];
+        console.log(datum);
+        if (!(godina >= 1999 && godina <= 2004)) {
             alert('Godina nije dobra!');
-            }
+            return false;
+        }
+        return true;
     }
 
     document.getElementById("createStudent").addEventListener("click", function (e) {
         e.preventDefault();
-        createStudent();
-        addStudentToAllStudents(document.getElementById("studentName").value);
-        locStorage.save("allStudent", allStudents);
-        document.getElementById("addNewStudent").reset();
-        
+        if (validData(document.getElementById("birthday").value)) {
+            createStudent();
+            addStudentToAllStudents(document.getElementById("studentName").value);
+            locStorage.save("allStudent", allStudents);
+            document.getElementById("addNewStudent").reset();
+        }
     });
+
 
     var Professor = function (id, name, lastName, birthday, pol, subject) {
         this.id = id;
@@ -470,3 +475,7 @@ var deleteStudent = function (e) {
 
 
 document.getElementById('listOfStudents').addEventListener('click', deleteStudent);
+
+var editStudent = function (){
+    
+}
