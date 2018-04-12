@@ -14,17 +14,19 @@
             <em>Students marks of "Srednja tehnička PTT škola"</em>
         </h1>
     </header>
-    <div>
+    <div id="logInDiv">
         <button id="logOut">LogOut</button>
         <form id="logIn">
             <fieldset>
                 <legend>Log in form</legend>
                 <input type="email" id="email" placeholder="email" name="email">
+                <br><br>
                 <input type="password" id="pass" placeholder="password" name="password">
+                <br>
                 <div id="logInButton">
                     <strong>Log in</strong>
                 </div>
-                <br>
+                <br><br>
                 <div>
                     <div id="registerButton">Register</div>
                     <div id="forgetPassButton">Forget password</div>
@@ -107,6 +109,10 @@
         <form id="addNewStudent">
             <fieldset>
                 <legend id="studentForm">Create new student:</legend>
+                <label for="studentID">Student ID:</label>
+                <br>
+                <input type="text" name="studentID" id="studentID" required>
+                <br>
                 <label for="studentName">Student name:</label>
                 <br>
                 <input type="text" name="studentName" id="studentName" required>
@@ -122,12 +128,13 @@
                 <br>
                 <label for="birthday">Date of birth: </label>
                 <br>
-                <input type="date" name="birthday" id="birthday">
+                <input type="date" name="birthday" id="birthday" >
                 <br>
                 <br>
                 <div>
                     <button type="submit" id="createStudent">Create student</button>
                     <button type="reset">Reset</button>
+                    <button type="submit" id="saveChanges">Save changes</button>
                 </div>
             </fieldset>
             <button id="closeStudentForm">X</button>
